@@ -1,0 +1,31 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+import './index.css'
+import { AuthProvider } from './context/AuthContext.jsx'
+import { CartProvider } from './context/CartContext.jsx'
+import { ProductProvider } from './context/ProductContext.jsx'
+import { WishlistProvider } from './context/WishlistContext.jsx'
+import { ReviewProvider } from './context/ReviewContext.jsx'
+import { ToastProvider } from './components/Toast/ToastContext.jsx'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ToastProvider>
+        <AuthProvider>
+          <ProductProvider>
+            <ReviewProvider>
+              <CartProvider>
+                <WishlistProvider>
+                  <App />
+                </WishlistProvider>
+              </CartProvider>
+            </ReviewProvider>
+          </ProductProvider>
+        </AuthProvider>
+      </ToastProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+)
